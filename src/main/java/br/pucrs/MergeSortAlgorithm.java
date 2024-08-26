@@ -9,31 +9,24 @@ public class MergeSortAlgorithm {
         if (left < right) {
             int middle = (left + right) / 2;
 
-            // Ordena a metade esquerda
             mergeSort(array, left, middle);
 
-            // Ordena a metade direita
             mergeSort(array, middle + 1, right);
 
-            // Mescla as duas metades
             merge(array, left, middle, right);
         }
     }
 
-    // Função para mesclar duas sublistas ordenadas
     private static void merge(int[] array, int left, int middle, int right) {
         int n1 = middle - left + 1;
         int n2 = right - middle;
 
-        // Cria vetores temporários
         int[] leftArray = new int[n1];
         int[] rightArray = new int[n2];
 
-        // Copia dados para vetores temporários
         System.arraycopy(array, left, leftArray, 0, n1);
         System.arraycopy(array, middle + 1, rightArray, 0, n2);
 
-        // Mescla os vetores temporários de volta no vetor original
         int i = 0, j = 0;
         int k = left;
 
@@ -47,15 +40,12 @@ public class MergeSortAlgorithm {
             }
             k++;
         }
-
-        // Copia os elementos restantes de leftArray, se houver
         while (i < n1) {
             array[k] = leftArray[i];
             i++;
             k++;
         }
 
-        // Copia os elementos restantes de rightArray, se houver
         while (j < n2) {
             array[k] = rightArray[j];
             j++;
@@ -63,18 +53,17 @@ public class MergeSortAlgorithm {
         }
     }
 
-    // Função para gerar um vetor de inteiros aleatórios
     private static int[] generateRandomArray(int size) {
         Random rand = new Random();
         int[] array = new int[size];
         for (int i = 0; i < size; i++) {
-            array[i] = rand.nextInt(); // Valores aleatórios
+            array[i] = rand.nextInt(); 
         }
         return array;
     }
 
     public static void main(String[] args) {
-        int[] sizes = {32, 2048, 1048576}; // Tamanhos dos vetores a serem testados
+        int[] sizes = {32, 2048, 1048576}; 
 
         for (int size : sizes) {
             int[] array = generateRandomArray(size);
