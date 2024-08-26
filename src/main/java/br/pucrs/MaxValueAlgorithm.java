@@ -1,3 +1,5 @@
+package br.pucrs;
+
 import java.util.Random;
 
 public class MaxValueAlgorithm {
